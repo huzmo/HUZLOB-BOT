@@ -10,11 +10,14 @@ import machine
 class controller:
     def __init__(self, ssid, password):
         #initilize pins for controller
-        DEBUG_LED = LED(13)
+        DEBUG_LED = LED(16)
+        STATE_LED = LED(15)
         wlan = network.WLAN(network.STA_IF)
         wlan.active(True)
         wlan.connect(ssid, password)
+        
         max_wait = 10
+        
         while max_wait > 0:
             if wlan.status() < 0 or wlan.status() >= 3:
                 break
@@ -46,3 +49,11 @@ class controller:
             
     def read_inputs(self):
         pass
+    
+def main():
+    my_controller = controller()
+
+          
+
+if __name__ == "__main__":
+    main()
