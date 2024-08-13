@@ -1,3 +1,5 @@
+#this file is installed only in Pico W (controller)
+
 from config import ssid,password
 from picozero import LED
 import network
